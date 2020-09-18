@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);//
         List<String> inputText = new ArrayList<>();
         String nextLineText = sc.nextLine();
         while (!nextLineText.isEmpty()) {
@@ -12,7 +12,7 @@ public class Main {
             nextLineText = sc.nextLine();
         }
 
-        List<Integer> setLetter = createSetLatter(inputText);
+        List<Integer> setLetter = createSetLetter(inputText);
         printText(inputText);
 
         printSetLetter(setLetter);
@@ -24,7 +24,7 @@ public class Main {
         }
     }
 
-    static List<Integer> createSetLatter(List<String> text) {
+    static List<Integer> createSetLetter(List<String> text) {
         List<Integer> setLetter = new ArrayList<>();
 
         char[] copyLine;
@@ -33,7 +33,7 @@ public class Main {
             copyLine = i.toCharArray();
             for (char j : copyLine) {
                 numLetter = j;
-                if (!(setLetter.contains(numLetter + 32)) &&
+                if (!(setLetter.contains(numLetter + 32)) &&//
                         !(setLetter.contains(numLetter)) &&
                         numLetter >= 65 &&
                         numLetter <= 90) {
