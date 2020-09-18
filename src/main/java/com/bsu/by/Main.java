@@ -14,7 +14,6 @@ public class Main {
 
         List<Integer> setLetter = createSetLatter(inputText);
         printText(inputText);
-        System.out.println(setLetter);
 
         printSetLetter(setLetter);
     }
