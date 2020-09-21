@@ -19,7 +19,6 @@ public class Main {
 
     static Set<Character> createSetLetter(List<String> text) {
         Set<Character> setLetter = new HashSet<>();
-
         char[] copyLine;
         int numLetter;
         for (String i : text) {
@@ -33,5 +32,4 @@ public class Main {
         }
         return setLetter;
     }
-
 }
