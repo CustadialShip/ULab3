@@ -4,52 +4,34 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);//
-        List<String> inputText = new ArrayList<>();
-        String nextLineText = sc.nextLine();
-        while (!nextLineText.isEmpty()) {
-            inputText.add(nextLineText);
-            nextLineText = sc.nextLine();
-        }
+        try (Scanner sc = new Scanner(System.in)) {
+            List<String> inputText = new ArrayList<>();
+            String nextLineText = sc.nextLine();
+            while (!nextLineText.isEmpty()) {
+                inputText.add(nextLineText);
+                nextLineText = sc.nextLine();
+            }
 
-        List<Integer> setLetter = createSetLetter(inputText);
-        printText(inputText);
-
-        printSetLetter(setLetter);
-    }
-
-    static void printText(List<String> text) {
-        for (String i : text) {
-            System.out.println(i);
+            Set<Character> setLetter = createSetLetter(inputText);
+            System.out.println(setLetter);
         }
     }
 
-    static List<Integer> createSetLetter(List<String> text) {
-        List<Integer> setLetter = new ArrayList<>();
+    static Set<Character> createSetLetter(List<String> text) {
+        Set<Character> setLetter = new HashSet<>();
 
         char[] copyLine;
         int numLetter;
         for (String i : text) {
-            copyLine = i.toCharArray();
+            copyLine = i.toLowerCase().toCharArray();
             for (char j : copyLine) {
                 numLetter = j;
-                if (!(setLetter.contains(numLetter + 32)) &&//
-                        !(setLetter.contains(numLetter)) &&
-                        numLetter >= 65 &&
-                        numLetter <= 90) {
-                    setLetter.add(numLetter + 32);
-                } else if (!(setLetter.contains(numLetter)) && numLetter >= 91 && numLetter <= 122) {
-                    setLetter.add(numLetter);
+                if (numLetter >= 91 && numLetter <= 122) {
+                    setLetter.add(j);
                 }
             }
         }
-        Collections.sort(setLetter);
         return setLetter;
     }
 
-    static void printSetLetter(List<Integer> setLetter) {
-        for (Integer i : setLetter) {
-            System.out.print((char) i.intValue() + " ");
-        }
-    }
 }

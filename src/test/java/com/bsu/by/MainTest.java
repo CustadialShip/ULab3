@@ -5,20 +5,24 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 
 public class MainTest {
 
     @Test
-    public void createSetLetter() {//
-        List<Integer> setLetterExpected1 = Arrays.asList(97, 118, 120);
+    public void createSetLetter1() {//
+        Set<Character> setLetterExpected1 = Set.of('a', 'v', 'x');
         List<String> text1 = Arrays.asList("axv", "xva");
-        List<Integer> setLetterActual1 = Main.createSetLetter(text1);
+        Set<Character> setLetterActual1 = Main.createSetLetter(text1);
         Assert.assertEquals(setLetterExpected1, setLetterActual1);
+    }
 
-        List<Integer> setLetterExpected2 = Arrays.asList(97, 99, 100, 102, 115, 118, 120, 122);
-        List<String> text2 = Arrays.asList("ASDFf", "zxcvVc");
-        List<Integer> setLetterActual2 = Main.createSetLetter(text2);
-        Assert.assertEquals(setLetterExpected2, setLetterActual2);
+    @Test
+    public void createSetLetter2() {//
+        Set<Character> setLetterExpected1 = Set.of('a', 's', 'c', 'd', 'f', 'v', 'x', 'z');
+        List<String> text1 = Arrays.asList("ASDFf", "zxcvVc");
+        Set<Character> setLetterActual1 = Main.createSetLetter(text1);
+        Assert.assertEquals(setLetterExpected1, setLetterActual1);
     }
 }
