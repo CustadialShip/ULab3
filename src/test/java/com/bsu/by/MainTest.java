@@ -11,18 +11,26 @@ import java.util.Set;
 public class MainTest {
 
     @Test
-    public void createSetLetter1() {//
+    public void testLowerCase() {
         Set<Character> setLetterExpected1 = Set.of('a', 'v', 'x');
         List<String> text1 = Arrays.asList("axv", "xva");
-        Set<Character> setLetterActual1 = Main.createSetLetter(text1);
+        Set<Character> setLetterActual1 = Main.findUniqueCharacters(text1);
         Assert.assertEquals(setLetterExpected1, setLetterActual1);
     }
 
     @Test
-    public void createSetLetter2() {//
+    public void testUpperCase() {
         Set<Character> setLetterExpected1 = Set.of('a', 's', 'c', 'd', 'f', 'v', 'x', 'z');
-        List<String> text1 = Arrays.asList("ASDFf", "zxcvVc");
-        Set<Character> setLetterActual1 = Main.createSetLetter(text1);
+        List<String> text1 = Arrays.asList("ASDF", "ZXCVVC");
+        Set<Character> setLetterActual1 = Main.findUniqueCharacters(text1);
+        Assert.assertEquals(setLetterExpected1, setLetterActual1);
+    }
+
+    @Test
+    public void testDifferentStringCases() {
+        Set<Character> setLetterExpected1 = Set.of('a', 's', 'c', 'd', 'f', 'v', 'x', 'z');
+        List<String> text1 = Arrays.asList("AsDf", "ZXcVvc");
+        Set<Character> setLetterActual1 = Main.findUniqueCharacters(text1);
         Assert.assertEquals(setLetterExpected1, setLetterActual1);
     }
 }

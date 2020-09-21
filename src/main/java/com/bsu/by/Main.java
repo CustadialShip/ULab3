@@ -12,12 +12,12 @@ public class Main {
                 nextLineText = sc.nextLine();
             }
 
-            Set<Character> setLetter = createSetLetter(inputText);
+            Set<Character> setLetter = findUniqueCharacters(inputText);
             System.out.println(setLetter);
         }
     }
 
-    static Set<Character> createSetLetter(List<String> text) {
+    static Set<Character> findUniqueCharacters(List<String> text) {
         Set<Character> setLetter = new HashSet<>();
         char[] copyLine;
         int numLetter;
